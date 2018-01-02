@@ -4,6 +4,21 @@ var ViewModel = function() {
     this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
     this.imgAttribution = ko.observable('https://github.com/udacity/ud989-cat-clicker-ko-starter/blob/master/img/434164568_fea0ad4013_z.jpg');
 
+    self.nickname = ko.observableArray([
+        'kitty',
+        'orange',
+        'pupper',
+        'smol'
+    ]);
+
+    self.addNickname = function(){
+        self.nickname.push({ name: "New at " + new Date() });
+    };
+
+    self.removeNickname = function(){
+        self.nickname.remove(this);
+    }
+
     this.title = ko.computed(function(){
         var title;
         var clicks = this.clickCount();
